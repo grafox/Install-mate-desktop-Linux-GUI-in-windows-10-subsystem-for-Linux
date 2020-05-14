@@ -1,0 +1,20 @@
+Windows 10 itself does not support GUI. In order to run GUI in wsl you need to install a X server and get it to configure correctly.
+I would suggest you to install VcXsrv to display GUI.
+I am not able to run GUI successfully by sudo apt-get install ubuntu-desktop. However, I successfully installed mate-desktop GUI in Debian and ubuntu.
+Here are the steps for me to display GUI by wsl. You can check my videos on detailed steps Install GUI (mate desktop) to Microsoft Windows Subsystem Linux
+
+step 1: install Debian or Ubuntu Linux subsystem: - PowerShell as administrator: Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux - Microsoft Store: install "Debian" or "ubuntu"
+
+step 2: install mate tesktop for Debian: - open Debian in windows 10. Type the following commend - sudo apt-get update - sudo apt install task-mate-desktop
+OR install mate-desktop for Ubuntu - open Ubuntu console in windows 10 - sudo apt install tasksel - sudo apt update - sudo tasksel install ubuntu-mate-desktop
+
+step 3: install VcXsrv in windows 10: - download from: https://sourceforge.net/projects/vcxsrv/ - open XLauch, and use the following options for setup - select: "One large window" - Display number: 0 - next - Start no client - next - finish
+
+step 4: setup display in linux console: - export DISPLAY=:0 - export LIBGL_ALWAYS_INDIRECT=1
+
+step 5: start Mate-desktop environment: - run mate-session
+
+Step 3 and step 4 are extremely important to display GUI in windows 10 wsl.
+
+
+https://askubuntu.com/questions/1162808/run-ubuntu-desktop-on-wsl-ubuntu-18-04-lts
